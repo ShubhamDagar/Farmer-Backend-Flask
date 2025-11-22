@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 import requests
-from backend.config import API_KEY
+from config import API_KEY
 from firebase_app import auth
 import traceback
 
