@@ -4,6 +4,7 @@ from flask import Flask
 from routes.auth import auth_bp
 from routes.user import user_bp
 from routes.crops import crop_bp
+from routes.ads import ads_bp
 
 # app.url_map.strict_slashes = False
 
@@ -23,6 +24,7 @@ def create_app():
     app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(user_bp, url_prefix="/user")
     app.register_blueprint(crop_bp, url_prefix="/crop")
+    app.register_blueprint(ads_bp, url_prefix="/ads")
 
     @app.get("/health")
     def health():
