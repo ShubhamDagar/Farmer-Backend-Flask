@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from firebase_app import db
 from utils.utils import get_uid
+from firebase_admin import firestore
 
 crop_bp = Blueprint("crop", __name__)
 
@@ -23,6 +24,7 @@ def create_crop():
     uid = get_uid()
     data = request.json
     data["userId"] = uid
+    data["createdAt"] = firestore.SERVER_TIMESTAMP
 
     ref = db.collection("crops").add(data)[1]
 

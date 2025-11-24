@@ -11,7 +11,12 @@ def create_app():
     app = Flask(__name__)
     CORS(
         app,
-        resources={r"/*": {"origins": "http://localhost:3000"}},
+        resources={r"/*": {
+            "origins": [
+                "http://localhost:3000",
+                "https://farmerportal-2xfo.onrender.com"
+            ]
+        }},
         supports_credentials=True
     )
 

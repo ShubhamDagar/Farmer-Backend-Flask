@@ -49,8 +49,12 @@ def check_user():
 
 @user_bp.get("/market")
 def getMarketCatalogue():
-    uid = get_uid()
-    crops = db.collection("crops").where("userId", "==", uid).stream()
+    crops = (
+        db.collection("crops")
+        .order_by("createdAt", direction="DESCENDING")
+        .limit(10)
+        .stream()
+    )
 
     result = []
     for c in crops:
