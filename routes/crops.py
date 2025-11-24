@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
 from firebase_app import db
-from utils.utils import get_uid, resolve_references_one_level
-import traceback
+from utils.utils import get_uid
 
 crop_bp = Blueprint("crop", __name__)
 
