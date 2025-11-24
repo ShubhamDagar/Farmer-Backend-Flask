@@ -27,6 +27,7 @@ def create_crop():
     data["createdAt"] = firestore.SERVER_TIMESTAMP
 
     ref = db.collection("crops").add(data)[1]
+    data['createdAt'] = 'server_timestamp_placeholder'
 
     return jsonify({"id": ref.id, **data})
 

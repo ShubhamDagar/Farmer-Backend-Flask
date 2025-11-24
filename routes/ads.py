@@ -27,6 +27,8 @@ def create_ads():
     data["createdAt"] = firestore.SERVER_TIMESTAMP
 
     ref = db.collection("ads").add(data)[1]
+    data['createdAt'] = 'server_timestamp_placeholder'
+
 
     return jsonify({"id": ref.id, **data})
 
