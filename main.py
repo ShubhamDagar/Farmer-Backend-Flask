@@ -5,6 +5,7 @@ from routes.auth import auth_bp
 from routes.user import user_bp
 from routes.crops import crop_bp
 from routes.ads import ads_bp
+from routes.slots import slot_bp
 
 
 def create_app():
@@ -25,6 +26,7 @@ def create_app():
     app.register_blueprint(crop_bp, url_prefix="/crop")
     app.register_blueprint(ads_bp, url_prefix="/ads")
     app.url_map.strict_slashes = False
+    app.register_blueprint(slot_bp, url_prefix="/slot")
 
     @app.get("/health")
     def health():
