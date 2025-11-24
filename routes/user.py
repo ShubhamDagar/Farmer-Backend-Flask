@@ -46,3 +46,16 @@ def check_user():
     if query:
         return jsonify({"exists": True})
     return jsonify({"exists": False})
+
+@user_bp.get("/market")
+def getMarketCatalogue():
+    uid = get_uid()
+    crops = db.collection("crops").where("userId", "==", uid).stream()
+
+    result = []
+    for c in crops:
+        item = c.to_dict()
+        item["id"] = c.id
+        result.append(item)
+
+    return jsonify(result)
