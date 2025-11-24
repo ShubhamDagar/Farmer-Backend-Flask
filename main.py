@@ -5,7 +5,6 @@ from routes.auth import auth_bp
 from routes.user import user_bp
 from routes.crops import crop_bp
 
-app = Flask(__name__)
 # app.url_map.strict_slashes = False
 
 def create_app():
