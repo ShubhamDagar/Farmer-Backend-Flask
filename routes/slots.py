@@ -6,7 +6,7 @@ slot_bp = Blueprint("slot", __name__)
 
 
 @slot_bp.get("/")
-def get_my_crops():
+def get_my_slots():
     uid = get_uid()
     slots = db.collection("slots").where("userId", "==", uid).stream()
 
